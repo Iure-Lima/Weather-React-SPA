@@ -4,7 +4,7 @@ export interface WeatherModel {
   temp_fahrenheit: number,
   feelslike_celsius: number,
   feelslike_fahrenheit: number,
-  is_day: number,
+  is_day: 0 | 1,
   condition: string,
   condition_icon: string,
   wind_mph: number,
