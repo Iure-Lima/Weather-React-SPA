@@ -1,8 +1,8 @@
 :root {
-  --sunny-ico: url("../assets/sunny.svg");
-  --moon-icon: url("../assets/moon.svg");
-  --cloud-background: url("../assets/cloud_background.svg");
-  --starry-sky-background: url("../assets/starry_sky_background.svg");
+  --sunny-ico: url("../../assets/sunny.svg");
+  --moon-icon: url("../../assets/moon.svg");
+  --cloud-background: url("../../assets/cloud_background.svg");
+  --starry-sky-background: url("../../assets/starry_sky_background.svg");
 }
 
 .switcher {
