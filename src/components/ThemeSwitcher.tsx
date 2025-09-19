@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import './ThemeSwitcher.css'
 
-function ThemeSwitcher(){
+function ThemeSwitcher(props: { callback: () => void; }){
   const [theme, setTheme] = useState("light");
 
   const handleSwitcherTheme = () => {
+    props.callback()
     setTheme(theme === "light" ? "dark" : "light")
   }
 

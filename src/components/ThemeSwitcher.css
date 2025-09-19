@@ -35,6 +35,7 @@
 
 .switcher.light {
   background-image: var(--cloud-background);
+  box-shadow: 2px 1px 5px black;
 
   & .btn-toggle {
     background-image: var(--sunny-ico);
@@ -44,6 +45,7 @@
 
 .switcher.dark {
   background-image: var(--starry-sky-background);
+  box-shadow: 2px 1px 5px white;
 
   & .btn-toggle {
     background-image: var(--moon-icon);
