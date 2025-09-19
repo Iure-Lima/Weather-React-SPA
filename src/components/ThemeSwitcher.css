@@ -1,0 +1,52 @@
+:root {
+  --sunny-ico: url("../assets/sunny.svg");
+  --moon-icon: url("../assets/moon.svg");
+  --cloud-background: url("../assets/cloud_background.svg");
+  --starry-sky-background: url("../assets/starry_sky_background.svg");
+}
+
+.switcher {
+  display: flex;
+  align-items: center;
+  width: 60px;
+  height: 30px;
+  border-radius: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+
+  transition: background-image 0.5s ease-in-out,
+    background-color 0.5s ease-in-out, justify-content 0.5s ease-in-out;
+
+  & .btn-toggle {
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 999px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    transition: transform 0.5s ease, background-image 0.5s ease-in-out;
+  }
+}
+
+.switcher.light {
+  background-image: var(--cloud-background);
+
+  & .btn-toggle {
+    background-image: var(--sunny-ico);
+    transform: translateX(0);
+  }
+}
+
+.switcher.dark {
+  background-image: var(--starry-sky-background);
+
+  & .btn-toggle {
+    background-image: var(--moon-icon);
+    transform: translateX(25px);
+  }
+}

@@ -1,6 +1,42 @@
-* {
-  background-color: white;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+:root {
+  /* Color for dark mode */
+  --background-dark: #242424;
+
+  /* Color for light mode */
+  --background-light: white;
+}
+
+main {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-synthesis: none;
+  min-width: 320px;
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid;
+}
+
+.light {
+  background-color: var(--background-light);
+  color: black;
+  & header {
+    border-bottom: 1px solid var(--background-dark);
+  }
+}
+
+.dark {
+  background-color: var(--background-dark);
+  color: white;
+
+  & header {
+    border-bottom: 1px solid var(--background-light);
+  }
 }
