@@ -1,0 +1,44 @@
+.search-bar {
+  width: 50%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: 100px;
+  background-size: 65%;
+  cursor: pointer;
+
+  & .search-icon {
+    width: 50px;
+    height: 100%;
+    background-image: url("../../assets/search.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 65%;
+  }
+
+  & form {
+    display: grid;
+    grid-template-columns: 80% 1fr;
+    height: 100%;
+    width: 100%;
+    border-bottom-right-radius: 100px;
+    border-top-right-radius: 100px;
+
+    & #city {
+      background: none;
+      outline: none;
+      border: none;
+      height: 100%;
+      padding-left: 10px;
+    }
+
+    & button {
+      background-color: rgb(47, 75, 5);
+      color: white;
+      border: none;
+      border-bottom-right-radius: 100px;
+      border-top-right-radius: 100px;
+      cursor: pointer;
+    }
+  }
+}
