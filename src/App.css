@@ -1,12 +1,23 @@
 :root {
-  /* Color for dark mode */
-  --background-dark: #242424;
+  /* Colors for dark mode (night sky) */
+  --background-dark: #0d1b2a; /* Main sky */
+  --card-dark: #1b263b; /* Cards / blocks */
+  --accent-dark: #3d2c8d; /* Details / Gradients */
+  --text-dark: #c0c0c0; /* Main text */
+  --highlight-dark: #ffd700; /* Stars / Icons */
 
-  /* Color for light mode */
-  --background-light: white;
+  /* Colors for light mode (day sky) */
+  --background-light: #87ceeb; /* Main sky */
+  --card-light: #f5f5f5; /* Cards / blocks */
+  --accent-light: #ffa500; /* Details / Gradients */
+  --text-light: #242424; /* Main text */
+  --highlight-light: #ffd93d; /* Stars / Icons */
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-synthesis: none;
@@ -20,23 +31,75 @@ main {
 header {
   display: flex;
   align-items: center;
+  width: 100%;
   justify-content: space-around;
   border-bottom: 1px solid;
 }
 
+.container {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 500px;
+  margin-top: 20px;
+  /* background-color: red; */
+}
+
 .light {
   background-color: var(--background-light);
-  color: black;
+
   & header {
-    border-bottom: 1px solid var(--background-dark);
+    color: var(--text-light);
+    border-bottom: 1px solid var(--accent-light);
+  }
+
+  & .container {
+    & .search-bar {
+      background-color: var(--card-light);
+      border: 1px solid var(--accent-light);
+
+      & #city {
+        color: var(--text-light);
+      }
+
+      & button {
+        background-color: var(--accent-light);
+        color: var(--text-light);
+      }
+
+      & button:hover {
+        background-color: var(--highlight-light);
+      }
+    }
   }
 }
 
 .dark {
   background-color: var(--background-dark);
-  color: white;
 
   & header {
-    border-bottom: 1px solid var(--background-light);
+    border-bottom: 1px solid var(--accent-dark);
+    color: var(--text-dark);
+  }
+
+  & .container {
+    & .search-bar {
+      background-color: var(--card-dark);
+      border: 1px solid var(--accent-dark);
+
+      & #city {
+        color: var(--text-dark);
+      }
+
+      & button {
+        background-color: var(--highlight-dark);
+        color: var(--background-dark);
+      }
+
+      & button:hover {
+        background-color: var(--accent-dark);
+      }
+    }
   }
 }

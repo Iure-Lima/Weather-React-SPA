@@ -21,6 +21,12 @@ For this project I am using some tools for the project, below is the list of too
 
 For this project, you need to have `Node` and `NPM` installed on your machine to run the program.
 
+Another important requirement for using the system is having a Weatherapi access key, which can be obtained through this link [Weatherapi Docs](https://www.weatherapi.com/docs/). With this access key, you must add the following structure to an `.env` environment variable file. Without this file, the system will not work as expected.
+
+```.env
+  KEY=<your-key>
+```
+
 ## Installing dependencies
 
 Go to the project page and run the command below to download all the dependencies required for the code to work correctly.
