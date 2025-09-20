@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import './SearchBar.css'
 
-function SearchBar(){
+function SearchBar(props: {callback: (cityName: string) => void;}){
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleClickIcon = () => {
@@ -10,10 +10,20 @@ function SearchBar(){
     }
   };
 
+  const sendForm = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    if (inputRef.current){
+      if (inputRef.current.value){
+        props.callback(inputRef.current.value);
+      }
+    }
+  }
+
   return (
     <div className='search-bar'>
       <span className="search-icon" onClick={handleClickIcon}></span>
-      <form action="">
+      <form onSubmit={sendForm}>
         <input type="text" placeholder='White city name' id='city' ref={inputRef} autoComplete='false'/>
         <button>Search</button>
       </form>

@@ -13,7 +13,8 @@ For this project I am using some tools for the project, below is the list of too
 - TypeScript
 - React
 - Vite
-- OpenWeatherMap
+- WeatherAPI
+- Axios
 
 # How to run the project
 
@@ -24,7 +25,7 @@ For this project, you need to have `Node` and `NPM` installed on your machine to
 Another important requirement for using the system is having a Weatherapi access key, which can be obtained through this link [Weatherapi Docs](https://www.weatherapi.com/docs/). With this access key, you must add the following structure to an `.env` environment variable file. Without this file, the system will not work as expected.
 
 ```.env
-  KEY=<your-key>
+  VITE_KEY=<your-key>
 ```
 
 ## Installing dependencies
