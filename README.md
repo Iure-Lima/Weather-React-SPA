@@ -13,7 +13,8 @@ For this project I am using some tools for the project, below is the list of too
 - TypeScript
 - React
 - Vite
-- OpenWeatherMap
+- WeatherAPI
+- Axios
 
 # How to run the project
 
