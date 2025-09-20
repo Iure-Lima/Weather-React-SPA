@@ -17,7 +17,7 @@ function WeatherDisplay(props: {weatherData: WeatherCardModel | null} ){
 
   return (
     <section className="weather-display">
-      <article className="weather-card">
+      <article className={`weather-card ${props.weatherData === null ? "hidden": ""}`} >
         <div className="card-header">
           <div>
             <h2>
@@ -69,6 +69,9 @@ function WeatherDisplay(props: {weatherData: WeatherCardModel | null} ){
           </div>
         </div>
 
+      </article>
+      <article className={`notContent ${props.weatherData === null ? "": "hidden"}`}>
+        <h2>Perform a search to view the information</h2>
       </article>
     </section>
   )

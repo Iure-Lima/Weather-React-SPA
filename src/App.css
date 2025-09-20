@@ -96,6 +96,10 @@ header {
         }
       }
     }
+
+    & .notContent {
+      color: var(--text-light);
+    }
   }
 }
 
@@ -149,6 +153,10 @@ header {
             color: var(--text-light);
           }
         }
+      }
+
+      & .notContent {
+        color: var(--text-dark);
       }
     }
   }
