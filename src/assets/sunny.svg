@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <radialGradient id="sunCore" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#FFF27A"/>
+      <stop offset="60%" stop-color="#FFD54D"/>
+      <stop offset="100%" stop-color="#F9A825"/>
+    </radialGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="80%">
+      <stop offset="0%" stop-color="#FFF59D" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FFF59D" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset dx="0" dy="2" result="off"/>
+      <feGaussianBlur in="off" stdDeviation="3" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0.25 0"/>
+      <feBlend in="SourceGraphic" mode="normal"/>
+    </filter>
+  </defs>
+  <!-- background just to preview on white -->
+  <rect width="256" height="256" fill="none"/>
+  <!-- sun -->
+  <g transform="translate(128,128)">
+    <circle r="56" fill="url(#sunCore)" filter="url(#softShadow)"/>
+    <circle r="88" fill="url(#sunGlow)"/>
+    <!-- subtle highlight -->
+    <ellipse rx="26" ry="16" cx="-18" cy="-22" fill="#FFFFFF" opacity="0.35"/>
+    <!-- rays -->
+    <g stroke="#FFC107" stroke-width="6" stroke-linecap="round" opacity="0.9">
+      <line x1="0" y1="-90" x2="0" y2="-70"/>
+      <line x1="0" y1="90" x2="0" y2="70"/>
+      <line x1="-90" y1="0" x2="-70" y2="0"/>
+      <line x1="90" y1="0" x2="70" y2="0"/>
+      <line x1="-64" y1="-64" x2="-50" y2="-50"/>
+      <line x1="64" y1="-64" x2="50" y2="-50"/>
+      <line x1="-64" y1="64" x2="-50" y2="50"/>
+      <line x1="64" y1="64" x2="50" y2="50"/>
+    </g>
+  </g>
+</svg>
