@@ -73,6 +73,34 @@ header {
       }
     }
   }
+
+  .weather-display {
+    & .weather-card {
+      background-color: var(--card-light);
+      color: var(--text-light);
+
+      & .card-header {
+        background-color: var(--highlight-light);
+        border-bottom: 1px solid var(--accent-light);
+      }
+
+      & .btn-container {
+        background-color: var(--background-light);
+
+        & button {
+          color: white;
+        }
+
+        & .activate {
+          color: var(--text-light);
+        }
+      }
+    }
+
+    & .notContent {
+      color: var(--text-light);
+    }
+  }
 }
 
 .dark {
@@ -99,6 +127,36 @@ header {
 
       & button:hover {
         background-color: var(--accent-dark);
+        color: var(--text-dark);
+      }
+    }
+
+    .weather-display {
+      & .weather-card {
+        background-color: var(--card-dark);
+        color: var(--text-dark);
+
+        & .card-header {
+          background-color: var(--highlight-dark);
+          border-bottom: 1px solid var(--accent-dark);
+          color: var(--text-light);
+        }
+
+        & .btn-container {
+          background-color: var(--background-dark);
+
+          & button {
+            color: var(--text-dark);
+          }
+
+          & .activate {
+            color: var(--text-light);
+          }
+        }
+      }
+
+      & .notContent {
+        color: var(--text-dark);
       }
     }
   }

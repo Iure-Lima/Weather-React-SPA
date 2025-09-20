@@ -1,0 +1,117 @@
+.weather-display {
+  width: 400px;
+  height: 430px;
+  margin-top: 40px;
+
+  & .weather-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+
+    & .card-header {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      & h2 {
+        font-size: larger;
+        margin: 0;
+      }
+
+      & p {
+        margin: 0;
+        margin-top: 5px;
+      }
+    }
+
+    & .card-body {
+      align-items: center;
+      display: flex;
+      padding: 10px 10%;
+
+      & img {
+        width: 100px;
+        height: 100px;
+        margin-right: 20px;
+      }
+
+      & h3 {
+        margin: 0;
+        font-size: xx-large;
+      }
+
+      & p {
+        margin: 0;
+      }
+    }
+
+    & .card-information {
+      display: grid;
+      width: 100%;
+      height: 70px;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+      justify-content: center;
+
+      & .information-data {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+
+        & p {
+          margin: 0;
+          margin-left: 25px;
+          font-size: large;
+        }
+
+        & .btn-container {
+          margin-right: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 3px;
+          border-radius: 5px;
+          width: 108px;
+          height: 40px;
+
+          & button {
+            cursor: pointer;
+            border-radius: 5px;
+            width: 50px;
+            height: 90%;
+            background: none;
+            border: none;
+            font-size: medium;
+          }
+
+          .activate {
+            background-color: white;
+          }
+        }
+
+        & small {
+          margin-right: 10px;
+        }
+      }
+
+      & .column {
+        grid-column: span 2;
+      }
+    }
+  }
+
+  & .hidden {
+    visibility: hidden;
+    display: none;
+  }
+
+  & .notContent {
+    width: 100%;
+    text-align: center;
+  }
+}
