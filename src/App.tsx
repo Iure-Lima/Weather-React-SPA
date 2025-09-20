@@ -1,18 +1,30 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import ThemeSwitcher from './components/ThemeSwitcher/ThemeSwitcher.tsx'
 import SearchBar from './components/SearchBar/SearchBar.tsx';
 import WeatherDisplay from './components/WeatherDisplay/WeatherDisplay.tsx';
 import type { WeatherCardModel } from './models/weather.car.model.ts';
+import axios from 'axios';
 
 function App() {
   const [themeApp, setThemeApp] = useState("light");
   const [cityName, setCityName] = useState<string>("");
   const [weatherData, setWeatherData] = useState<WeatherCardModel | null>(null);
+  
+  const apiKey: string = import.meta.env.VITE_KEY;
 
   const handleSwitcherThemeApp = () => {
     setThemeApp(themeApp === "light" ? "dark" : "light")
   }
+
+  const handleCityName = (cityName:string) => {
+    setCityName(cityName);
+  }
+
+  useEffect(() => {
+    console.log("oi")
+
+  }, [cityName])
 
   const mockData: WeatherCardModel =  {
   location: {
@@ -47,8 +59,8 @@ function App() {
         <ThemeSwitcher callback={handleSwitcherThemeApp} />
       </header>
       <section className='container'>
-        <SearchBar />
-        <WeatherDisplay weatherData={mockData}/>
+        <SearchBar callback={handleCityName} />
+        <WeatherDisplay weatherData={weatherData}/>
       </section>
     </main>
   )
