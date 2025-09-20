@@ -7,6 +7,8 @@ import type { WeatherCardModel } from './models/weather.car.model.ts';
 
 function App() {
   const [themeApp, setThemeApp] = useState("light");
+  const [cityName, setCityName] = useState<string>("");
+  const [weatherData, setWeatherData] = useState<WeatherCardModel | null>(null);
 
   const handleSwitcherThemeApp = () => {
     setThemeApp(themeApp === "light" ? "dark" : "light")
