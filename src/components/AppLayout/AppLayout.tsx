@@ -23,9 +23,9 @@ export default function AppLayout() {
 
         <nav style={{ display: "flex", gap: 16 }}>
           <NavLink to="/" end>
-            Início
+            Home
           </NavLink>
-          <NavLink to="/about">Sobre</NavLink>
+          <NavLink to="/about">About</NavLink>
         </nav>
 
         <ThemeSwitcher callback={handleSwitcherThemeApp} />
