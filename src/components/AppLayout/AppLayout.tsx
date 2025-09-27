@@ -1,15 +1,12 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import { useState } from "react";
 import "./AppLayout.css"
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+import { useTheme } from "../../context/ThemeContext";
 
 export default function AppLayout() {
   const navigate = useNavigate();
-  const [themeApp, setThemeApp] = useState("light");
+  const {themeApp} = useTheme();
 
-  const handleSwitcherThemeApp = () => {
-    setThemeApp(themeApp === "light" ? "dark" : "light");
-  };
 
   const handleCityName = (cityName: string) => {
     if (!cityName.trim()) return;
@@ -28,7 +25,7 @@ export default function AppLayout() {
           <NavLink to="/about">About</NavLink>
         </nav>
 
-        <ThemeSwitcher callback={handleSwitcherThemeApp} />
+        <ThemeSwitcher />
       </header>
 
       <section className="container">
