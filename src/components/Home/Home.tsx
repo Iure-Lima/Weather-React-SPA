@@ -1,13 +1,15 @@
+import { useOutletContext } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import "./Home.css"
 
-interface Props {
-  handleCity: (cityName:string) => void
-}
+type OutletContext = {
+  handleCityName: (city: string) => void;
+};
 
-function Home({handleCity}:Props){
+function Home(){
+  const { handleCityName } = useOutletContext<OutletContext>();
   return <>
-    <SearchBar callback={handleCity} />
+    <SearchBar callback={handleCityName} />
   </>
 }
 
