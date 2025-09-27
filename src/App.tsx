@@ -5,8 +5,10 @@ import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher.tsx";
 import Home from "./components/Home/Home.tsx";
 import WeatherDetails from "./components/WeatherDetails/WeatherDetails.tsx";
 import About from "./components/About/About.tsx";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 function App() {
+  const navigate = useNavigate()
   const [themeApp, setThemeApp] = useState("light");
   const [cityName, setCityName] = useState<string>("");
 
@@ -16,6 +18,7 @@ function App() {
 
   const handleCityName = (cityName: string) => {
     setCityName(cityName);
+    navigate(`/forecast/${cityName}`)
   };
 
 
@@ -26,9 +29,11 @@ function App() {
         <ThemeSwitcher callback={handleSwitcherThemeApp} />
       </header>
       <section className="container">
-        <Home handleCity={handleCityName}/>
-        <WeatherDetails/>
-        <About/>
+        <Routes>
+          <Route path="/" element={<Home handleCity={handleCityName}/>}/>
+          <Route path="/about" element={<About/>}/>
+          <Route path="/forecast/:cityName" element={<WeatherDetails/>}/>
+        </Routes>
       </section>
     </main>
   );
