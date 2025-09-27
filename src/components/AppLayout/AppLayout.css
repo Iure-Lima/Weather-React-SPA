@@ -5,6 +5,7 @@
   --accent-dark: #3d2c8d; /* Details / Gradients */
   --text-dark: #c0c0c0; /* Main text */
   --highlight-dark: #ffd700; /* Stars / Icons */
+  --link-color-dark: #ddd;
 
   /* Colors for light mode (day sky) */
   --background-light: #87ceeb; /* Main sky */
@@ -12,6 +13,7 @@
   --accent-light: #ffa500; /* Details / Gradients */
   --text-light: #242424; /* Main text */
   --highlight-light: #ffd93d; /* Stars / Icons */
+  --link-color-light: #333;
 }
 
 main {
@@ -36,6 +38,28 @@ header {
   border-bottom: 1px solid;
 }
 
+header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+header nav a {
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+header nav a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+header nav a.active {
+  background-color: #0077ff;
+  color: #fff;
+}
+
 .container {
   width: 60%;
   display: flex;
@@ -51,6 +75,10 @@ header {
   & header {
     color: var(--text-light);
     border-bottom: 1px solid var(--accent-light);
+
+    nav a {
+      color: var(--link-color-light);
+    }
   }
 
   & .container {
@@ -64,6 +92,10 @@ header {
   & header {
     border-bottom: 1px solid var(--accent-dark);
     color: var(--text-dark);
+
+    nav a {
+      color: var(--link-color-dark);
+    }
   }
 
   & .container {
