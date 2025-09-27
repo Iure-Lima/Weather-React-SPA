@@ -1,30 +1,30 @@
 import { useState ,useEffect} from "react";
 import type { WeatherCardModel } from "../../models/weather.car.model";
 import "./WeatherDetails.css"
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import type { WeatherApiResponse } from "../../models/weather.api.response";
 import WeatherDisplay from "../WeatherDisplay/WeatherDisplay";
+import useFetch from "../../hooks/useFetch";
+
+const API_BASE_URL = "http://api.weatherapi.com/v1/current.json";
 
 
 function WeatherDetails(){
   const {cityName} = useParams()
+  const weatherUrl = `${API_BASE_URL}?key=${
+            import.meta.env.VITE_KEY
+          }&q=${cityName}&lang=pt`
+
+  const {data} = useFetch(weatherUrl)
   const [weatherData, setWeatherData] = useState<WeatherCardModel | null>(null);
   const handleWeatherData = (data: WeatherCardModel) => {
     setWeatherData(data)
   }
 
   useEffect(() => {
-    if (cityName) {
-      axios
-        .get(
-          `http://api.weatherapi.com/v1/current.json?key=${
-            import.meta.env.VITE_KEY
-          }&q=${cityName}&lang=pt`
-        )
-        .then((response) => {
-          const weatherApiData: WeatherApiResponse = response.data;
-          const newWeatherCardData: WeatherCardModel = {
+    const weatherApiData: WeatherApiResponse | null = data;
+    if (weatherApiData){
+      const newWeatherCardData: WeatherCardModel = {
             location: {
               name: weatherApiData.location.name,
               region: weatherApiData.location.region,
@@ -49,13 +49,9 @@ function WeatherDetails(){
               uv: weatherApiData.current.uv
             }
           }
-          handleWeatherData(newWeatherCardData)
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    handleWeatherData(newWeatherCardData)
     }
-  }, [cityName]);
+  }, [data]);
   return <>
     <WeatherDisplay weatherData={weatherData} />
   </>
