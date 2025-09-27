@@ -42,3 +42,48 @@
     }
   }
 }
+
+.light {
+  & .container {
+    & .search-bar {
+      background-color: var(--card-light);
+      border: 1px solid var(--accent-light);
+
+      & #city {
+        color: var(--text-light);
+      }
+
+      & button {
+        background-color: var(--accent-light);
+        color: var(--text-light);
+      }
+
+      & button:hover {
+        background-color: var(--highlight-light);
+      }
+    }
+  }
+}
+
+.dark {
+  & .container {
+    & .search-bar {
+      background-color: var(--card-dark);
+      border: 1px solid var(--accent-dark);
+
+      & #city {
+        color: var(--text-dark);
+      }
+
+      & button {
+        background-color: var(--highlight-dark);
+        color: var(--background-dark);
+      }
+
+      & button:hover {
+        background-color: var(--accent-dark);
+        color: var(--text-dark);
+      }
+    }
+  }
+}

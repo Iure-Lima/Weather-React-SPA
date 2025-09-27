@@ -1,0 +1,31 @@
+import { useState, useEffect } from 'react';
+import type { WeatherApiResponse } from '../models/weather.api.response';
+
+const useFetch = (url:string) => {
+  const [data, setData] = useState<WeatherApiResponse | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error('Error for GetDatas');
+        }
+        const result = await response.json();
+        setData(result);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [url]);
+
+  return { data, loading, error };
+};
+
+export default useFetch;

@@ -43,3 +43,52 @@ To run the project, you need to execute the command below for the system to run.
 ```shell
   npm run dev
 ```
+
+## Route Structure
+
+This project uses React Router v6 to manage navigation between pages. Routes are organized in a nested fashion, with a shared layout (AppLayout) that displays common elements (title, navigation bar, and theme control) across all pages.
+
+### Route Definition
+
+In the App.tsx file we have the following route hierarchy:
+
+```tsx
+<BrowserRouter>
+  <Routes>
+    <Route element={<AppLayout />}>
+      <Route index element={<Home />} />
+      <Route path="forecast/:cityName" element={<WeatherDetails />} />
+      <Route path="about" element={<About />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Route>
+  </Routes>
+</BrowserRouter>
+```
+
+- **Parent Route**: AppLayout
+
+  - Defines the main layout of the application:
+    - Header with title (Weather Panel).
+    - NavLink for Home and About.
+    - ThemeSwitcher component to toggle between light and dark modes.
+  - Contains an <Outlet /> that renders the content of the corresponding child route.
+
+- **Route / (Home)**
+
+  - Component: Home
+  - Displays the search bar for entering the city name.
+  - When searching, redirects the user to /forecast/:cityName.
+
+- **Route /forecast/:cityName (Forecast Details)**
+
+  - Component: WeatherDetails
+  - Dynamic route, receives the cityName parameter via the URL.
+  - Displays detailed weather information for the searched city.
+
+- **/about Route**
+
+  - Component: About
+  - Static page with information about the application.
+
+- **Route \* (Fallback)**
+  - Any non-existent route redirects the user back to /.

@@ -1,16 +1,11 @@
-import { useState } from 'react';
+import { useTheme } from '../../context/ThemeContext';
 import './ThemeSwitcher.css'
 
-function ThemeSwitcher(props: { callback: () => void; }){
-  const [theme, setTheme] = useState("light");
-
-  const handleSwitcherTheme = () => {
-    props.callback()
-    setTheme(theme === "light" ? "dark" : "light")
-  }
+function ThemeSwitcher(){
+  const {themeApp, handleSwitcherThemeApp} = useTheme();
 
   return (
-    <div className={`switcher ${theme}`} onClick={handleSwitcherTheme}>
+    <div className={`switcher ${themeApp}`} onClick={handleSwitcherThemeApp}>
       <span className='btn-toggle'></span>
     </div>
   )
