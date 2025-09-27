@@ -55,6 +55,8 @@ header {
   }
 
   & .container {
+    color: var(--text-light);
+
     & .search-bar {
       background-color: var(--card-light);
       border: 1px solid var(--accent-light);
@@ -112,6 +114,7 @@ header {
   }
 
   & .container {
+    color: var(--text-dark);
     & .search-bar {
       background-color: var(--card-dark);
       border: 1px solid var(--accent-dark);
